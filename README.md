@@ -44,3 +44,6 @@ Analyzes the sentiment of tweets with hashtags #Python or #Coding.
 ## Visualization
 **Figure 1: Sentiment Insights: #Python & #Coding Tweets**
 ![Sentiment Chart](sentiment_chart.png)
+
+## Demo
+![Sentiment Analysis in Action](sentiment_analysis_demo.gif)
