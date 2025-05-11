@@ -1,0 +1,138 @@
+Tweet: Tweet: I made a game called Treasure_Island_Project
+Sentiment: neutral (Score: 0.83)
+
+Tweet: using python
+Sentiment: neutral (Score: 0.76)
+
+Tweet: #AfghanGirlsCode #python #programming #WomenInTech https://t.co/vKW09MlldA
+Sentiment: neutral (Score: 0.75)
+
+Tweet: Tweet: RT @Python_Dv: Best YouTube Channels To Learn 🔥🚀
+Sentiment: positive (Score: 0.58)
+
+Tweet: #sql #python #excel #java #bigdata https://t.co/tTjVBUedd7
+Sentiment: neutral (Score: 0.78)
+
+Tweet: Tweet: RT @Krishnasagrawal: 🧵 Learn Python in  just 14 Pages 📘
+Sentiment: neutral (Score: 0.58)
+
+Tweet: (Bookmark it for future)
+Sentiment: neutral (Score: 0.75)
+
+Tweet: 1/n
+Sentiment: neutral (Score: 0.52)
+
+Tweet: #python https://t.co/sIF8mjJ03r
+Sentiment: neutral (Score: 0.75)
+
+Tweet: Tweet: Feeling stuck with your assignments?
+Sentiment: negative (Score: 0.71)
+
+Tweet: class kicking my ass?
+Sentiment: negative (Score: 0.95)
+
+Tweet: pay assignment?
+Sentiment: neutral (Score: 0.69)
+
+Tweet: pay essay due?
+Sentiment: neutral (Score: 0.68)
+
+Tweet: research paper?
+Sentiment: neutral (Score: 0.76)
+
+Tweet: pay term paper
+Sentiment: neutral (Score: 0.80)
+
+Tweet: History
+Sentiment: neutral (Score: 0.68)
+
+Tweet: Homework help?
+Sentiment: neutral (Score: 0.67)
+
+Tweet: Business?
+Sentiment: neutral (Score: 0.59)
+
+Tweet: Nursing
+Sentiment: neutral (Score: 0.66)
+
+Tweet: #100DaysOfCode #WomenWhoCode #NodeJS #IoT #Python #javascript #Econometrics #webdev #DEVCommunity #AcademicChatter https://t.co/EKREch4Av3
+Sentiment: neutral (Score: 0.61)
+
+Tweet: Tweet: RT @realpython: Exploring Python's `tuple` Data Type With Examples #python https://t.co/sloTc2xq3J
+Sentiment: neutral (Score: 0.81)
+
+Tweet: #100DaysOfCode #WomenWhoCode #NodeJS #IoT #Python #javascript #Econometrics #webdev #DEVCommunity #AcademicChatter https://t.co/O3ewKMqaVM
+Sentiment: neutral (Score: 0.61)
+
+Tweet: 00DaysOfCode #WomenWhoCode #NodeJS #IoT #Python #javascript #Econometrics #webdev #DEVCommunity #AcademicChatter https://t.co/DG8KfbEHKv
+Sentiment: neutral (Score: 0.64)
+
+Tweet: Tweet: I just earned the Road Badge on Codédex! 🛣 https://t.co/rvMdO1ajQ7 #Python #Codedex @codedex_io
+Sentiment: positive (Score: 0.88)
+
+Tweet: Tweet: Treasurer Island project
+Sentiment: neutral (Score: 0.84)
+
+Tweet: #AfghanGirlsCode #python #programming #WomenInTech https://t.co/SEvFjDkX5S
+Sentiment: neutral (Score: 0.75)
+
+Tweet: Tweet: Share TinyURL on Twitter https://t.co/K9dO5ZctR8
+Sentiment: neutral (Score: 0.90)
+
+Tweet: #Organisasi,#Etika,#Mahasiswa,#Esai,#Coding,#Teknologi,#Pembelajaran,#Magang,#ChatGPT,#Pendidikan,
+Sentiment: neutral (Score: 0.84)
+
+Tweet: Tweet: RT @tut_ml: Data Analyst Roadmap- https://t.co/hUiA0XjMvO
+Sentiment: neutral (Score: 0.90)
+
+Tweet: #MachineLearning #DeepLearning #BigData #…
+Sentiment: neutral (Score: 0.59)
+
+Tweet: Tweet: Share TinyURL on Twitter https://t.co/zfahJHrc7E
+Sentiment: neutral (Score: 0.90)
+
+Tweet: #AIuntukPelajar,#Python,#TeknologiPendidikan,#EtikaAI,#KreativitasDigital,#BelajarEfisien,#CapCut,#InovasiPendidikan,#DuniaKerja,#KecerdasanBuatan,#ChatGPT,
+Sentiment: neutral (Score: 0.80)
+
+Tweet: Tweet: RT @gp_pulipaka: Overview of Machine Learning Tools! #BigData #Analytics #DataScience #AI #MachineLearning #IoT #IIoT #PyTorch #Python #RSt…
+Sentiment: neutral (Score: 0.77)
+
+Tweet: Tweet: I'm thrilled to see the overwhelming response to my eBook, The Python Interview Handbook 2023's books! Thank you to all my readers for your support!  #python #pythonjob https://t.co/mVsbnFtbOW
+Sentiment: positive (Score: 0.99)
+
+Tweet: Tweet: bruin: Build Data Pipelines With SQL and Python #python https://t.co/0dY56cdEpk
+Sentiment: neutral (Score: 0.78)
+
+Tweet: Tweet: RT @DaedayzN: Python เวอร์ชั่นสไตล์ดนตรีแบนด์ทำมาใหม่เพื่อราชมัง มันส์มากกกก เสียงกลองคือที่! อยากให้เมมเบอร์พกไปเล่นคอนเดี่ยวด้วย เผื่อคนไ…
+Sentiment: neutral (Score: 0.79)
+
+Tweet: Tweet: RT @GOT7Official: KBS #뮤직뱅크 출연 안내
+Sentiment: neutral (Score: 0.88)
+
+Tweet: 잠시 후 5시 5분!
+Sentiment: neutral (Score: 0.86)
+
+Tweet: KBS 뮤직뱅크에 GOT7이 출연합니다!
+Sentiment: neutral (Score: 0.88)
+
+Tweet: 오늘도 본방사수🫶
+Sentiment: neutral (Score: 0.85)
+
+Tweet: #GOT7 #갓세븐
+Sentiment: neutral (Score: 0.74)
+
+Tweet: #PYTHON #GOT7_PYTHON
+Sentiment: neutral (Score: 0.73)
+
+Tweet: #WINTER_HEPTAGON
+Sentiment: neutral (Score: 0.83)
+
+Tweet: #GOT7_…
+Sentiment: neutral (Score: 0.76)
+
+Tweet: Tweet: RT @josecodetech: ⚙️ ¡Nuevo video del curso Python + Copilot!
+Sentiment: neutral (Score: 0.86)
+
+Tweet: Hoy vemos cómo crear funciones simples en Python 🧠
+Sentiment: neutral (Score: 0.86)
+

@@ -1,0 +1,146 @@
+**File Name:** TweetSentimentBot_Progress_Report.txt
+**Location:** C:\Users\Unknown01\Desktop\Grok\TweetSentimentBot_Progress_Report.txt
+
+**Title:** TweetSentimentBot Project Progress Report
+
+**Date:** Saturday, May 10, 2025
+
+**Author:** Unknown01
+
+---
+
+**Overview**
+This document provides a detailed progress report for the "TweetSentimentBot" project, which began on Saturday, May 10, 2025. It outlines the development environment setup, completed tasks (tweet collection), current challenges (e.g., API streaming issues), and upcoming tasks (sentiment analysis and visualization). The project leverages the X API via `tweepy` to collect tweets, `transformers` for sentiment analysis, and `matplotlib` for visualization.
+
+---
+
+**Project Setup Recap**
+
+1. **Development Environment**
+   - **Virtual Environment**: Created a virtual environment named `venv` in `C:\Users\Unknown01\Desktop\Grok` to isolate dependencies.
+     ```
+     cd C:\Users\Unknown01\Desktop\Grok
+     python -m venv venv
+     ```
+   - Activated the environment:
+     ```
+     venv\Scripts\activate
+     ```
+   - Resolved global Python environment issues by reinstalling `yt-dlp 2025.4.30` and removing invalid distributions.
+
+2. **Dependencies Installed**
+   - `tweepy 4.15.0`: For X API interaction.
+   - `transformers 4.51.3`: For sentiment analysis.
+   - `matplotlib 3.10.3`: For data visualization.
+   - `python-dotenv 1.1.0`: For securely loading the bearer token from `.env`.
+   - Updated `pip` to 25.1.1 within the virtual environment.
+
+3. **X API Configuration**
+   - **App ID**: 30716320
+   - **Access Level**: Basic Access (Sandbox/Development mode).
+   - **Bearer Token**: Obtained and stored in `.env` file.
+   - **Issue**: Encountered a `403 Forbidden` error on `/2/tweets/search/stream` endpoint due to Basic Access restrictions.
+   - **Action Taken**: Contacted X Support to enable Production mode; awaiting response.
+
+---
+
+**Completed Tasks**
+
+1. **Task 1: Tweet Collection**
+   - **Objective**: Collect 50 tweets containing hashtags `#Python` or `#Coding`, excluding retweets.
+   - **Method**:
+     - Initially attempted streaming with `stream_tweets.py` using `/2/tweets/search/stream`, but encountered a `403 Forbidden` error.
+     - Switched to polling with `search_recent_tweets` by creating `poll_tweets.py`.
+   - **Script Details (`poll_tweets.py`)**:
+     - Query: `#Python OR #Coding -is:retweet`.
+     - Polls every 120 seconds to stay within rate limits (180 requests/15 minutes for Basic Access).
+     - Handles `429 Too Many Requests` errors with a 15-minute wait and countdown timer.
+     - Writes tweets to `tweets.txt` in real-time using `f.flush()`.
+     - Stops after collecting 50 tweets.
+   - **Outcome**:
+     - Successfully collected 50 tweets by ~16:01 on May 10, 2025.
+     - Tweets stored in `tweets.txt` (confirmed via Notepad).
+   - **Challenges**:
+     - Frequent rate limit errors (`429 Too Many Requests`) due to Basic Access limits.
+     - Added a countdown timer to visually track wait times during rate limit pauses.
+
+---
+
+**Current Challenges**
+
+1. **API Streaming Limitation**
+   - **Issue**: The `403 Forbidden` error prevents use of the streaming endpoint (`/2/tweets/search/stream`) in `stream_tweets.py`.
+   - **Cause**: Basic Access mode does not support streaming; Production mode is required.
+   - **Status**: Awaiting X Support’s response to enable Production mode.
+   - **Impact**: Currently using polling (`search_recent_tweets`) as a workaround, which is slower and hits rate limits frequently.
+
+2. **Rate Limits**
+   - **Issue**: Basic Access limits `search_recent_tweets` to 180 requests/15 minutes, causing delays (15-minute waits) during tweet collection.
+   - **Mitigation**: Polling interval set to 120 seconds (~7.5 requests/15 minutes), but still hit limits due to previous API calls.
+   - **Future Solution**: Production mode will increase rate limits and enable streaming.
+
+---
+
+**Upcoming Tasks**
+
+1. **Task 3: Sentiment Analysis**
+   - **Objective**: Analyze the 50 tweets in `tweets.txt` to classify each as Positive, Negative, or Neutral using `transformers`.
+   - **Tool**: Use `transformers 4.51.3` with a pre-trained sentiment analysis model (e.g., `distilbert-base-uncased-finetuned-sst-2-english`).
+   - **Steps**:
+     - Read tweets from `tweets.txt`.
+     - Use a `transformers` pipeline to classify sentiments.
+     - Store results (e.g., in a new file or data structure).
+   - **Timeline**: Start immediately after tweet collection (May 10, 2025).
+
+2. **Task 4: Visualization**
+   - **Objective**: Visualize sentiment analysis results using `matplotlib`.
+   - **Tool**: Use `matplotlib 3.10.3` to create a bar chart showing the distribution of sentiments (Positive, Negative, Neutral).
+   - **Timeline**: To be completed after sentiment analysis.
+
+3. **API Streaming Resolution**
+   - **Objective**: Resolve the `403 Forbidden` error to enable real-time tweet streaming.
+   - **Steps**:
+     - Monitor X Support communications for Production mode approval.
+     - Test `stream_tweets.py` once Production mode is enabled.
+   - **Timeline**: Dependent on X Support’s response (expected by May 11, 2025).
+
+---
+
+**Next Steps**
+
+1. **Immediate Action**:
+   - Begin Task 3 (Sentiment Analysis) by coding a script to analyze the 50 tweets in `tweets.txt`.
+   - Use `transformers` to classify sentiments and prepare data for visualization.
+
+2. **Ongoing Monitoring**:
+   - Check email, Developer Portal notifications, or X DMs for X Support’s response on Production mode.
+   - If Production mode is enabled, test `stream_tweets.py` and consider switching from polling to streaming for future tweet collection.
+
+3. **Documentation**:
+   - Update this progress report with results from sentiment analysis and visualization tasks.
+   - Continue referring to `TweetSentimentBot_Setup_Summary.txt` for setup details and `TweetSentimentBot_Plan.txt` for the project timeline.
+
+---
+
+**Notes**
+- Always activate the virtual environment before running scripts:
+
+**Progress Update (May 10, 2025)**:
+- Updated .env file to include Hugging Face access token (HF_TOKEN) alongside existing X API bearer token (BEARER_TOKEN) to support model downloads for sentiment analysis.
+
+**Progress Update (May 10, 2025)**:
+- Ran sentiment_analysis.py, processed 171 tweets (unexpected, expected 50), with distribution {'positive': 59, 'negative': 112}.
+- Verified tweets.txt had 243 lines; used deduplicate_tweets.py to clean 114 unique tweets to 50 in tweets_cleaned.txt.
+- Deleted original tweets.txt, renamed tweets_cleaned.txt to tweets.txt, verified 50 lines.
+- Updated sentiment_analysis.py to handle multi-line tweets and preserve hashtags, removed local_files_only=True due to tokenization error.
+- Reran sentiment_analysis.py, processed 16 tweets due to parsing error, with distribution {'positive': 1, 'negative': 15}.
+- Simplified sentiment_analysis.py to process each line as a tweet, processed 46 tweets with distribution {'positive': 11, 'negative': 35}.
+- Switched to cardiffnlp/twitter-roberta-base-sentiment model, processed 46 tweets with distribution {'positive': 3, 'negative': 2, 'neutral': 41}.
+- Updated sentiment_analysis.py to process all 50 lines, accounting for skipped tweets.
+- Reran sentiment_analysis.py, processed 50 lines (46 tweets analyzed, 4 skipped due to empty cleaned text), updated sentiment_results.txt with distribution {'positive': 3, 'negative': 2, 'neutral': 41}.
+
+**Progress Update (May 10, 2025)**:
+- Created and ran visualize_sentiment.py to generate sentiment distribution chart.
+- Enhanced chart with modern dark theme, slim bars, percentage labels, and removed toolbar.
+- Renamed chart title to "Sentiment Insights: #Python & #Coding Tweets" and window title to "Sentiment Analysis Chart".
+- Saved sentiment_chart.png and updated README.md with chart and Figure 1 caption.

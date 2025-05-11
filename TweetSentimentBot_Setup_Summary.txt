@@ -1,0 +1,98 @@
+**File Name:** TweetSentimentBot_Setup_Summary.txt
+**Location:** C:\Users\Unknown01\Desktop\Grok\TweetSentimentBot_Setup_Summary.txt
+
+**Title:** TweetSentimentBot Project Setup Summary
+
+**Date:** Friday, May 9, 2025
+
+**Author:** Unknown01
+
+---
+
+**Overview**
+This document summarizes the setup and installations completed for the "TweetSentimentBot" project, which is scheduled to start on Saturday, May 10, 2025. It details the steps taken to prepare the development environment, resolve issues, and install necessary dependencies.
+
+---
+
+**Progress So Far**
+
+1. **Initial Environment Setup**
+   - Identified and resolved a persistent `WARNING: Ignoring invalid distribution ~t-dlp` issue in the global Python environment.
+   - Deleted residual files (`~t_dlp-2024.7.16.dist-info` and others) from `C:\Users\Unknown01\AppData\Local\Programs\Python\Python312\Lib\site-packages`.
+   - Reinstalled `yt-dlp 2025.4.30` to ensure a clean global environment.
+
+2. **Virtual Environment Creation**
+   - Created a virtual environment named `venv` in the `Grok` folder to isolate project dependencies:
+     ```
+     cd C:\Users\Unknown01\Desktop\Grok
+     python -m venv venv
+     ```
+   - Activated the virtual environment:
+     ```
+     venv\Scripts\activate
+     ```
+   - The virtual environment ensures that all project-related installations are isolated from the global Python environment, preventing conflicts and ensuring stability.
+
+3. **Key Dependencies Installed**
+   - Installed `tweepy 4.15.0` within the virtual environment for interacting with the X API:
+     ```
+     pip install tweepy
+     ```
+   - Installed `transformers 4.51.3` for sentiment analysis using machine learning models:
+     ```
+     pip install transformers
+     ```
+   - Installed `matplotlib 3.10.3` for visualizing sentiment data:
+     ```
+     pip install matplotlib
+     ```
+   - Updated `pip` to version 25.1.1 within the virtual environment to ensure compatibility:
+     ```
+     python.exe -m pip install --upgrade pip
+     ```
+
+4. **Verification**
+   - Confirmed all installations within the virtual environment using `pip list`:
+     ```
+     pip list
+     ```
+   - Ensured `tweepy 4.15.0`, `transformers 4.51.3`, and `matplotlib 3.10.3` are present without any issues.
+   - Verified `pip 25.1.1` is the active version within the virtual environment:
+     ```
+     pip --version
+     ```
+
+---
+
+**Installed Packages**
+The following packages are installed within the virtual environment (`venv`) in the `Grok` folder:
+
+- **tweepy 4.15.0**
+  - Dependencies: `oauthlib 3.2.2`, `requests 2.32.3`, `requests-oauthlib 2.0.0`, `charset-normalizer 3.4.2`, `idna 3.10`, `urllib3 2.4.0`, `certifi 2025.4.26`
+  - Purpose: To interact with the X API for streaming tweets and performing sentiment analysis.
+
+- **transformers 4.51.3**
+  - Dependencies: `filelock 3.18.0`, `huggingface-hub 0.31.1`, `numpy 2.2.5`, `packaging 25.0`, `pyyaml 6.0.2`, `regex 2024.11.6`, `requests 2.32.3`, `tokenizers 0.21.1`, `safetensors 0.5.3`, `tqdm 4.67.1`, `fsspec 2025.3.2`, `typing-extensions 4.13.2`
+  - Purpose: To perform sentiment analysis on tweet text using pre-trained machine learning models.
+
+- **matplotlib 3.10.3**
+  - Dependencies: `contourpy 1.3.2`, `cycler 0.12.1`, `fonttools 4.57.0`, `kiwisolver 1.4.8`, `pillow 11.2.1`, `pyparsing 3.2.3`, `python-dateutil 2.9.0.post0`, `six 1.17.0`
+  - Purpose: To visualize sentiment data, such as creating graphs and charts to represent sentiment trends over time.
+
+- **pip 25.1.1**
+  - Purpose: To manage package installations and updates within the virtual environment.
+
+---
+
+**Remaining Tasks**
+- **X API Setup**:
+  - Monitor X Support’s response to enable Production mode (resolve `403 Forbidden` error for streaming).
+- **Sentiment Analysis**:
+  - Analyze the 50 tweets in `tweets.txt` using `transformers` (start May 10, 2025).
+- **Visualization**:
+  - Visualize sentiment results using `matplotlib` after analysis.
+
+---
+
+**Notes**
+- Ensure you always activate the virtual environment before working on the project:
