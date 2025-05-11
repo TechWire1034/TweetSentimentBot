@@ -1,72 +1,78 @@
+import matplotlib
+matplotlib.use('QtAgg')  # Switch to Qt backend
+matplotlib.rcParams['toolbar'] = 'none'
 import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+from collections import Counter
+from PyQt5.QtGui import QIcon
 
-# Disable the interactive toolbar
-plt.rcParams['toolbar'] = 'None'
+# Count sentiments from your log file
+sentiment_counts = Counter()
 
-# Sentiment data from sentiment_analysis.py
-sentiment_data = {'positive': 3, 'negative': 2, 'neutral': 41}
-total_tweets = sum(sentiment_data.values())  # Total tweets analyzed: 46
+with open('sentiment_results.txt', 'r', encoding='utf-8') as f:
+    for line in f:
+        if line.startswith("Sentiment:"):
+            sentiment = line.split(':')[1].split('(')[0].strip().capitalize()
+            sentiment_counts[sentiment] += 1
 
-# Calculate percentages
-percentages = {key: (value / total_tweets) * 100 for key, value in sentiment_data.items()}
+# If no sentiments found, print error and stop
+if not sentiment_counts:
+    print("No sentiment data found in file.")
+    exit()
 
-# Set modern style with dark theme
-plt.style.use('default')
-plt.rcParams['font.family'] = 'Arial'
-plt.rcParams['font.size'] = 11
-plt.rcParams['axes.linewidth'] = 0.6
+# Prepare data for plotting
+labels = list(sentiment_counts.keys())
+values = list(sentiment_counts.values())
+total = sum(values)
+percentages = [(v / total * 100) for v in values]
 
-# Create figure and axis
-fig, ax = plt.subplots(figsize=(7, 5))
-
-# Set the window title
-fig.canvas.manager.set_window_title('Sentiment Analysis Chart')  # Renames "Figure 1" to custom title
-
-# Dark modern color palette
-colors = ['#A3BE8C', '#D08770', '#81A1C1']
-
-# Create bar chart with slimmer bars
-labels = list(sentiment_data.keys())
-values = list(sentiment_data.values())
-bars = ax.bar(labels, values, color=colors, alpha=0.9, edgecolor='white', linewidth=1, width=0.4)
-
-# Add percentage labels on top of each bar
-for bar, percentage in zip(bars, percentages.values()):
-    height = bar.get_height()
-    ax.text(
-        bar.get_x() + bar.get_width() / 2,
-        height + 1.5,
-        f'{percentage:.1f}%',
-        ha='center', va='bottom', fontsize=10, fontweight='bold', color='#E0E0E0'
-    )
-
-# Customize the chart
-ax.set_title('Sentiment Insights: #Python & #Coding Tweets', 
-             fontsize=14, fontweight='bold', color='#E0E0E0', pad=15)
-ax.set_xlabel('Sentiment', fontsize=11, color='#E0E0E0')
-ax.set_ylabel('Number of Tweets', fontsize=11, color='#E0E0E0')
-ax.set_ylim(0, max(values) + 7)
-
-# Dark theme axes
-ax.tick_params(axis='both', which='major', labelsize=10, colors='#BBBBBB')
+# Set up the figure and axes (1280x720 pixels at 100 DPI)
+fig, ax = plt.subplots(figsize=(12.8, 7.2), dpi=100)
+fig.canvas.manager.toolbar_visible = False  # Disable the toolbar
+fig.canvas.manager.set_window_title('Sentiment Analysis Chart')  # Set window title
+fig.canvas.manager.window.setWindowIcon(QIcon('sentiment_icon.ico'))
+ax.set_title("Sentiment Insights: #Python & #Coding Tweets", color='white', pad=20)
+fig.patch.set_facecolor('#2e2e2e')
+ax.set_facecolor('#2e2e2e')
+ax.tick_params(colors='white')
+ax.spines['bottom'].set_color('white')
+ax.spines['left'].set_color('white')
 ax.spines['top'].set_visible(False)
 ax.spines['right'].set_visible(False)
-ax.spines['left'].set_color('#555555')
-ax.spines['bottom'].set_color('#555555')
 
-# Subtle gridlines (y-axis only)
-ax.yaxis.grid(True, linestyle='--', alpha=0.3, color='#555555')
-ax.set_axisbelow(True)
+# Define bar colors for known sentiments
+color_map = {
+    'Positive': '#4CAF50',
+    'Negative': '#F44336',
+    'Neutral':  '#2196F3'
+}
 
-# Dark modern background
-fig.patch.set_facecolor('#1E1E1E')
-ax.set_facecolor('#2D2D2D')
+# Assign colors based on sentiment labels (fallback to gray)
+bar_colors = [color_map.get(label, '#9E9E9E') for label in labels]
 
-# Add total tweets annotation
-ax.text(0.5, max(values) + 5, f'Total Tweets Analyzed: {total_tweets}', 
-        ha='center', fontsize=9, color='#BBBBBB')
+# Initialize bars and labels
+bars = ax.bar(labels, [0] * len(labels), color=bar_colors, width=0.5)
+ax.set_ylim(0, 100)
+ax.set_ylabel('Percentage (%)', color='white')
 
-# Save and display the chart
-plt.tight_layout()
-plt.savefig(r'C:\Users\Unknown01\Desktop\Grok\sentiment_chart.png', dpi=300, bbox_inches='tight', facecolor='#1E1E1E')
+# Add text labels above each bar
+texts = [ax.text(bar.get_x() + bar.get_width() / 2, 0, '0.0%', ha='center', va='bottom', color='white') for bar in bars]
+
+# Animation function
+def animate(frame):
+    progress_ratio = (frame + 1) / 50
+    for i, bar in enumerate(bars):
+        target_height = percentages[i] * progress_ratio
+        bar.set_height(target_height)
+        texts[i].set_y(target_height + 1)
+        texts[i].set_text(f'{target_height:.1f}%')
+    return list(bars) + texts
+
+# Create animation
+ani = animation.FuncAnimation(fig, animate, frames=50, interval=50, blit=True, repeat=False)
+
+# Save animation as GIF
+ani.save('animated_sentiment_chart.gif', writer='pillow', fps=20)
+
+# Show the chart
 plt.show()

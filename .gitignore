@@ -1,4 +1,8 @@
-.env
 venv/
-__pycache__/
-*.pyc
+.env
+dir_list.txt
+outputs/sentiment_analysis_output.png
+outputs/visualize_sentiment_output.png
+archive/
+Backup/
+test_api_files/
