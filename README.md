@@ -31,6 +31,10 @@ Analyzes the sentiment of tweets with hashtags #Python or #Coding.
   python poll_tweets.py
 
 - Collects 50 tweets with hashtags #Python or #Coding and saves them to `tweets.txt`.
+- **Note**: Requires X API Basic Access. You may hit rate limits (e.g., 10,000 tweets/month cap). If the monthly cap is exceeded, wait until it resets (typically the next month) or upgrade your API tier. Alternatively, use the sample data in `sample_data/tweets.txt` to test the pipeline:
+
+  copy sample_data\tweets.txt tweets.txt
+
 - Analyze sentiment:
 
   python sentiment_analysis.py
@@ -52,9 +56,8 @@ Analyzes the sentiment of tweets with hashtags #Python or #Coding.
 
 ## Why TweetSentimentBot?
 - 🤖 AI-powered: Uses Hugging Face NLP for accurate sentiment analysis.
-- ⏰ Real-time: Streams X posts as they happen.
-- 📊 Visual: See sentiment trends with live charts.
-- 🔔 Alerts: Get notified of sentiment shifts.
+- 📊 Visual: See sentiment trends with charts.
+- 💻 Automated: Polls tweets automatically for analysis.
 
 ## Example
 Tracked #Python and found 89.1% neutral sentiment! See the live chart in the demo above.
