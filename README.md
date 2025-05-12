@@ -68,6 +68,9 @@ GitHub: [TechWire1034](https://github.com/TechWire1034)
 ## Ethical Considerations
 TweetSentimentBot is designed for educational and demonstration purposes. Please use it responsibly and avoid manipulating or misrepresenting sentiment data. The bot only analyzes public posts and does not store or share private information.
 
+## Privacy Statement
+TweetSentimentBot only processes public tweets and does not collect, store, or share any private user information. All data used (e.g., tweets.txt, sentiment_results.txt) remains local and is not shared on GitHub, except for a sample dataset of public tweets in sample_data/tweets.txt.
+
 ## Disclaimer
 This project is intended for educational and demonstration purposes. The author is not responsible for any misuse of the code or data. Use at your own risk.
 
