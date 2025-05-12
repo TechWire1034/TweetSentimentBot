@@ -5,6 +5,10 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 from collections import Counter
 from PyQt5.QtGui import QIcon
+import os
+
+# Ensure outputs directory exists
+os.makedirs('outputs', exist_ok=True)
 
 # Count sentiments from your log file
 sentiment_counts = Counter()
@@ -71,8 +75,16 @@ def animate(frame):
 # Create animation
 ani = animation.FuncAnimation(fig, animate, frames=50, interval=50, blit=True, repeat=False)
 
-# Save animation as GIF
-ani.save('animated_sentiment_chart.gif', writer='pillow', fps=20)
+# Save animation as GIF in outputs/
+ani.save('outputs/animated_sentiment_chart.gif', writer='pillow', fps=20)
+
+# Save static chart after animation
+for i, bar in enumerate(bars):
+    bar.set_height(percentages[i])
+    texts[i].set_y(percentages[i] + 1)
+    texts[i].set_text(f'{percentages[i]:.1f}%')
+plt.savefig('outputs/sentiment_chart.png', bbox_inches='tight', facecolor=fig.get_facecolor())
+plt.close(fig)  # Close the figure to free memory
 
 # Show the chart
 plt.show()
