@@ -1,8 +1,10 @@
 import matplotlib
+matplotlib.use('Qt5Agg')  # Use Qt5Agg backend
 matplotlib.rcParams['toolbar'] = 'none'
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 from collections import Counter
+from PyQt5.QtGui import QIcon
 import os
 
 print("Starting visualize_sentiment.py...")
@@ -48,10 +50,16 @@ try:
     percentages = [(v / total * 100) for v in values]
     print(f"Labels: {labels}, Percentages: {percentages}")
 
-    # Set up the figure and axes
+    # Set up the figure and axes (1280x720 pixels at 100 DPI)
     fig, ax = plt.subplots(figsize=(12.8, 7.2), dpi=100)
     fig.canvas.manager.toolbar_visible = False
     fig.canvas.manager.set_window_title('Sentiment Analysis Chart')
+    # Remove window icon
+    try:
+        fig.canvas.manager.window.setWindowIcon(QIcon())  # Set empty icon
+        print("Removed window icon.")
+    except Exception as e:
+        print(f"Warning: Could not remove window icon: {e}")
     ax.set_title("Sentiment Insights: #Python & #Coding Tweets", color='white', pad=20)
     fig.patch.set_facecolor('#2e2e2e')
     ax.set_facecolor('#2e2e2e')
@@ -100,7 +108,7 @@ try:
     try:
         gif_path = os.path.join(outputs_dir, 'animated_sentiment_chart.gif')
         if os.path.exists(gif_path):
-            os.remove(gif_path)  # Remove existing file to ensure overwrite
+            os.remove(gif_path)
         ani.save(gif_path, writer='pillow', fps=20)
         print(f"Saved animated_sentiment_chart.gif to {os.path.abspath(gif_path)}")
     except Exception as e:
@@ -115,7 +123,7 @@ try:
     try:
         png_path = os.path.join(outputs_dir, 'sentiment_chart.png')
         if os.path.exists(png_path):
-            os.remove(png_path)  # Remove existing file to ensure overwrite
+            os.remove(png_path)
         plt.savefig(png_path, bbox_inches='tight', facecolor=fig.get_facecolor())
         print(f"Saved sentiment_chart.png to {os.path.abspath(png_path)}")
     except Exception as e:
